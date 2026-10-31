@@ -1,0 +1,16 @@
+name: windows-check
+on: push
+permissions:
+  contents: read
+jobs:
+  run:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Run test programs
+        shell: pwsh
+        run: |
+          foreach ($exe in 't.exe', 'only.exe') {
+            & ".\$exe"
+            Write-Output "RESULT $exe exit=$LASTEXITCODE"
+          }
