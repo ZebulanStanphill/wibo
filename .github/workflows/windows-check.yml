@@ -10,7 +10,7 @@ jobs:
       - name: Run test programs
         shell: pwsh
         run: |
-          foreach ($exe in 't.exe', 'probe.exe') {
+          foreach ($exe in 't.exe', 'va.exe', 'probe.exe') {
             & ".\$exe"
             Write-Output "RESULT $exe exit=$LASTEXITCODE"
           }
